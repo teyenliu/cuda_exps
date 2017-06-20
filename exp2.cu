@@ -96,7 +96,8 @@ cudaError_t addWithCuda(int *c, const int *a, const int *b, size_t size)
     }  
     // Launch a kernel on the GPU with one thread for each element.  
     for(int i = 0;i<5;i++)  
-    {  
+    {
+        // <<< block num, thread num, block's shared memory size, stream target  >>> 
         addKernel<<<1,1,0,stream[i]>>>(dev_c+i, dev_a+i, dev_b+i);    //执行流  
     }  
     cudaDeviceSynchronize();  

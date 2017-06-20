@@ -150,5 +150,6 @@ void printDevProp(cudaDeviceProp &devProp)
     printf("Concurrent copy and execution: %s\n",  (devProp.deviceOverlap ? "Yes" : "No"));
     printf("Number of multiprocessors:     %d\n",  devProp.multiProcessorCount);
     printf("Kernel execution timeout:      %s\n",  (devProp.kernelExecTimeoutEnabled ? "Yes" : "No"));
+    printf("Maximum Threads Per MultiProcessor: %d\n",  devProp.maxThreadsPerMultiProcessor);
     return;
 }
