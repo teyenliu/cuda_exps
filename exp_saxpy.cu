@@ -42,8 +42,11 @@ int main(void)
   cudaEventSynchronize(stop);
   float milliseconds = 0;
   cudaEventElapsedTime(&milliseconds, start, stop);
-  printf("the elapsed time: %f\n", milliseconds);
-
+  printf("The Elapsed Time: %f\n", milliseconds);
+  // N*4 is the number of bytes transferred per array read or write, 
+  // and the factor of three represents the reading of x and the reading and writing of y.
+  printf("Effective Bandwidth (GB/s): %fn", N*4*3/milliseconds/1e6);
+  
   float maxError = 0.0f;
   for (int i = 0; i < N; i++)
     maxError = max(maxError, abs(y[i]-4.0f));
